@@ -7,8 +7,10 @@
         <meta name="theme-color" content="white" />
 
         <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/modals.css" />
 
         <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+        <script src="js/Modals.js"></script>
         <script src="js/PageNavigator.js"></script>
         <script src="js/script.js"></script>
     </head>
@@ -42,9 +44,9 @@
                         <div class="page" data-page-name="home">
                             <div class="list-layout">
                                 <div class="item-group">
-                                    <button class="item item-button">
+                                    <button class="item item-button" onclick="modalpopup()">
                                         <iconify-icon icon="tabler:chevron-left"></iconify-icon>
-                                        <span>Parent folder</span>
+                                        <span>Open text modal</span>
                                     </button>
                                 </div>
 
@@ -177,6 +179,72 @@
                             <span>Settings</span>
                         </button>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-host modal-scroll">
+            <div class="modal modal-spaced-3">
+                <div class="modal-header">
+                    <div class="header-left"></div>
+                    <div class="header-center">
+                        <span class="header-textbox">Modal Title</span>
+                    </div>
+                    <div class="header-right">
+                        <button class="clear-button">
+                            <iconify-icon icon="tabler:send"></iconify-icon>
+                            <span>Send</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-content">
+                    <div class="list-layout">
+                        <div class="item-group">
+                            <label class="item radiobox">
+                                <input type="radio" name="options" />
+                                <div class="check-marker"></div>
+                                <span>Option</span>
+                            </label>
+                            <label class="item radiobox">
+                                <input type="radio" name="options" />
+                                <div class="check-marker"></div>
+                                <span>Option</span>
+                            </label>
+                            <label class="item radiobox">
+                                <input type="radio" name="options" />
+                                <div class="check-marker"></div>
+                                <span>Option</span>
+                            </label>
+                            <label class="item radiobox">
+                                <input type="radio" name="options" />
+                                <div class="check-marker"></div>
+                                <span>Option</span>
+                            </label>
+                            <label class="item radiobox">
+                                <input type="radio" name="options" />
+                                <div class="check-marker"></div>
+                                <span>Option</span>
+                            </label>
+                            <label class="item radiobox">
+                                <input type="radio" name="options" />
+                                <div class="check-marker"></div>
+                                <span>Option</span>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- <div class="textbox hint">
+                        <input required type="textbox" />
+                        <span class="hint">Name</span>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="modal-host modal-popup">
+            <div class="popup">
+                <div class="popup-title">Title text</div>
+                <div class="popup-text">Are you sure you want to perform this action?</div>
+                <div class="popup-buttons">
+                    <button class="clear-button"><span class="text-red">Confirm</span></button>
+                    <button class="clear-button"><span>Cancel</span></button>
                 </div>
             </div>
         </div>
