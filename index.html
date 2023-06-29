@@ -2,141 +2,135 @@
 <html>
     <head>
         <title>Phone UI</title>
-        <link rel="stylesheet" href="style.css" />
+
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta name="theme-color" content="white" />
+
+        <link rel="stylesheet" href="css/style.css" />
+
         <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+        <script src="js/PageNavigator.js"></script>
+        <script src="js/script.js"></script>
     </head>
-    <body>
-        <div class="header">
-            <div class="header-inner">
-                <div class="header-left">
-                    <button class="clear-button">
-                        <iconify-icon icon="tabler:arrow-left"></iconify-icon>
-                        <span>Back</span>
-                    </button>
-                </div>
-                <div class="header-center"><span class="header-textbox">Page Title</span></div>
-                <div class="header-right">
-                    <button class="clear-button icon-only">
-                        <iconify-icon icon="tabler:trash"></iconify-icon>
-                    </button>
-                    <button class="clear-button">
-                        <iconify-icon icon="tabler:send"></iconify-icon>
-                        <span>Send</span>
-                    </button>
-                </div>
-            </div>
-        </div>
+    <body onload="onload()">
         <div class="screens">
-            <div class="screen">
-                <div class="list-layout">
-                    <div class="item-group">
-                        <button class="item item-button">
-                            <iconify-icon icon="tabler:chevron-left"></iconify-icon>
-                            <span>Parent folder</span>
-                        </button>
+            <div class="screen" id="screen1">
+                <div class="header">
+                    <div class="header-inner">
+                        <div class="header-left">
+                            <button class="clear-button">
+                                <iconify-icon icon="tabler:arrow-left"></iconify-icon>
+                                <span>Back</span>
+                            </button>
+                        </div>
+                        <div class="header-center">
+                            <span class="header-textbox">Page Title</span>
+                        </div>
+                        <div class="header-right">
+                            <button class="clear-button icon-only">
+                                <iconify-icon icon="tabler:trash"></iconify-icon>
+                            </button>
+                            <button class="clear-button">
+                                <iconify-icon icon="tabler:send"></iconify-icon>
+                                <span>Send</span>
+                            </button>
+                        </div>
                     </div>
-                    <div class="item-group">
-                        <button class="item item-button">
-                            <span>Item text</span>
-                        </button>
-                        <button class="item item-button">
-                            <iconify-icon icon="tabler:bell"></iconify-icon>
-                            <span>Item with left icon</span>
-                        </button>
-                        <button class="item item-button">
-                            <span>Item with right icon</span>
-                            <iconify-icon icon="tabler:chevron-right"></iconify-icon>
-                        </button>
-                        <button class="item item-button">
-                            <iconify-icon icon="tabler:folder"></iconify-icon>
-                            <span>Item with left and right icon</span>
-                            <iconify-icon icon="tabler:chevron-right"></iconify-icon>
-                        </button>
+                </div>
+                <div class="pages">
+                    <div class="pages-inner pagenav-pages">
+                        <div class="page" data-page-name="home">
+                            <div class="list-layout">
+                                <div class="item-group">
+                                    <button class="item item-button">
+                                        <iconify-icon icon="tabler:chevron-left"></iconify-icon>
+                                        <span>Parent folder</span>
+                                    </button>
+                                </div>
+
+                                <div class="item-group-label">Buttons 1</div>
+                                <div class="item-group">
+                                    <button class="item item-button">
+                                        <span>Item text</span>
+                                    </button>
+                                    <button class="item item-button">
+                                        <iconify-icon icon="tabler:bell"></iconify-icon>
+                                        <span>Item with left icon</span>
+                                    </button>
+                                    <button class="item item-button">
+                                        <span>Item with right icon</span>
+                                        <iconify-icon icon="tabler:chevron-right"></iconify-icon>
+                                    </button>
+                                    <button class="item item-button">
+                                        <iconify-icon icon="tabler:folder"></iconify-icon>
+                                        <span>Item with left and right icon</span>
+                                        <iconify-icon icon="tabler:chevron-right"></iconify-icon>
+                                    </button>
+                                </div>
+
+                                <div class="item-group-label">Buttons 2</div>
+                                <div class="item-group">
+                                    <button class="item item-button">
+                                        <span>Item text</span>
+                                    </button>
+                                    <button class="item item-button">
+                                        <span>Item text</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page" data-page-name="profile">
+                            <div class="list-layout">
+                                <div class="item-group-label">Your Profile</div>
+                                <div class="item-group">
+                                    <button class="item item-button">
+                                        <iconify-icon icon="tabler:mail"></iconify-icon>
+                                        <span>Change E-mail</span>
+                                        <iconify-icon icon="tabler:chevron-right"></iconify-icon>
+                                    </button>
+                                    <button class="item item-button">
+                                        <iconify-icon icon="tabler:key"></iconify-icon>
+                                        <span>Change Password</span>
+                                        <iconify-icon icon="tabler:chevron-right"></iconify-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page" data-page-name="settings">
+                            <div class="list-layout">
+                                <div class="item-group-label">App Settings</div>
+                                <div class="item-group">
+                                    <button class="item item-button">
+                                        <iconify-icon icon="tabler:mail"></iconify-icon>
+                                        <span>Change E-mail</span>
+                                        <iconify-icon icon="tabler:chevron-right"></iconify-icon>
+                                    </button>
+                                    <button class="item item-button">
+                                        <iconify-icon icon="tabler:key"></iconify-icon>
+                                        <span>Change Password</span>
+                                        <iconify-icon icon="tabler:chevron-right"></iconify-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="item-group">
-                        <button class="item item-button">
-                            <span>Item text</span>
+                </div>
+                <div class="buttons">
+                    <div class="buttons-inner neutral-buttons pagenav-buttons">
+                        <button class="clear-button two-row" data-page-name="home">
+                            <iconify-icon icon="tabler:home"></iconify-icon>
+                            <span>Home</span>
                         </button>
-                        <button class="item item-button">
-                            <span>Item text</span>
+                        <button class="clear-button two-row" data-page-name="profile">
+                            <iconify-icon icon="tabler:user-circle"></iconify-icon>
+                            <span>Profile</span>
                         </button>
-                    </div>
-                    <div class="item-group">
-                        <button class="item item-button">
-                            <span>Item text</span>
-                        </button>
-                        <button class="item item-button">
-                            <span>Item text</span>
-                        </button>
-                    </div>
-                    <div class="item-group">
-                        <button class="item item-button">
-                            <span>Item text</span>
-                        </button>
-                        <button class="item item-button">
-                            <span>Item text</span>
-                        </button>
-                        <button class="item item-button">
-                            <span>Item text</span>
-                        </button>
-                        <button class="item item-button">
-                            <span>Item text</span>
-                        </button>
-                        <button class="item item-button">
-                            <span>Item text</span>
-                        </button>
-                        <button class="item item-button">
-                            <span>Item text</span>
-                        </button>
-                        <button class="item item-button">
-                            <span>Item text</span>
-                        </button>
-                        <button class="item item-button">
-                            <span>Item text</span>
-                        </button>
-                        <button class="item item-button">
-                            <span>Item text</span>
-                        </button>
-                        <button class="item item-button">
-                            <span>Item text</span>
-                        </button>
-                        <button class="item item-button">
-                            <span>Item text</span>
-                        </button>
-                        <button class="item item-button">
-                            <span>Item text</span>
-                        </button>
-                        <button class="item item-button">
-                            <span>Item text</span>
-                        </button>
-                        <button class="item item-button">
-                            <span>Item text</span>
-                        </button>
-                        <button class="item item-button">
-                            <span>Item text</span>
-                        </button>
-                        <button class="item item-button">
-                            <span>Item text</span>
+                        <button class="clear-button two-row" data-page-name="settings">
+                            <iconify-icon icon="tabler:settings"></iconify-icon>
+                            <span>Settings</span>
                         </button>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="buttons">
-            <div class="buttons-inner">
-                <button class="clear-button two-row">
-                    <iconify-icon icon="tabler:home"></iconify-icon>
-                    <span>Home menu</span>
-                </button>
-                <button class="clear-button two-row">
-                    <iconify-icon icon="tabler:home"></iconify-icon>
-                    <span>Home menu</span>
-                </button>
-                <button class="clear-button two-row">
-                    <iconify-icon icon="tabler:home"></iconify-icon>
-                    <span>Home menu</span>
-                </button>
             </div>
         </div>
     </body>
