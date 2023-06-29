@@ -40,8 +40,8 @@ textarea {
 }
 .header-inner {
     box-sizing: border-box;
-    height: 54px;
-    padding: 4px 6px;
+    height: 50px;
+    padding: 4px;
     display: flex;
     flex-direction: row;
     user-select: none;
@@ -53,7 +53,8 @@ textarea {
     flex: 1;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: stretch;
+    gap: 2px;
 }
 .header-center {
     flex: 1;
@@ -64,7 +65,7 @@ textarea {
 }
 
 .header-textbox {
-    padding: 6px 2px;
+    padding: 11px 2px 0;
 }
 
 .buttons {
@@ -77,12 +78,12 @@ textarea {
     z-index: 100;
 }
 .buttons-inner {
-    height: 64px;
+    height: 60px;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 6px;
-    padding: 6px;
+    gap: 4px;
+    padding: 4px;
 }
 .buttons-inner .clear-button {
     flex: 1;
@@ -109,7 +110,7 @@ textarea {
     top: 0;
     left: 0;
     right: 0;
-    padding: 62px 6px 82px;
+    padding: 60px 6px 78px;
 }
 .pages-inner .page.noanimate {
     transition: none;
@@ -139,8 +140,8 @@ textarea {
     align-items: center;
     outline: none;
     border: none;
-    border-radius: 5px;
-    padding: 8px;
+    border-radius: 6px;
+    padding: 6px;
     gap: 2px;
     background-color: transparent;
     color: var(--accent-color-1);
@@ -208,10 +209,11 @@ textarea {
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     background-color: transparent;
     color: black;
-    padding: 8px;
+    padding: 10px;
     gap: 2px;
     text-align: left;
     transition: background-color 0.2s;
+    user-select: none;
 }
 .list-layout .item iconify-icon {
     color: #555;
@@ -222,21 +224,121 @@ textarea {
     padding: 5px 4px 4px;
     flex: 1;
 }
+.list-layout .item .right {
+    text-align: right;
+    color: #888;
+}
 .list-layout .item:last-child {
     border-bottom: none;
 }
-.list-layout .item:hover {
+.list-layout .item.focusable:hover,
+.list-layout button.item:hover,
+.list-layout label.item:hover {
     background-color: rgba(0, 0, 0, 0.04);
 }
-.list-layout .item:active {
+.list-layout .item.focusable:active,
+.list-layout button.item:active,
+.list-layout label.item:active {
     background-color: rgba(0, 0, 0, 0.08);
 }
-.list-layout .item:active iconify-icon {
+.list-layout .item.focusable:active iconify-icon,
+.list-layout button:active iconify-icon,
+.list-layout label:active iconify-icon {
     transform: scale(0.8);
 }
+.list-layout .item input[type="checkbox"],
+.list-layout .item input[type="radio"] {
+    width: 22px;
+    height: 22px;
+}
 .list-layout .item-group-label {
-    margin-bottom: -12px;
+    margin-bottom: -10px;
     padding-left: 10px;
     padding-top: 4px;
     color: #777;
+}
+
+.checkbox input[type="checkbox"],
+.togglebox input[type="checkbox"],
+.radiobox input[type="radio"] {
+    display: none;
+}
+.checkbox .check-marker,
+.togglebox .check-marker,
+.radiobox .check-marker {
+    box-sizing: border-box;
+    width: 22px;
+    height: 22px;
+    margin: 3px;
+    background-color: #e9e9e9;
+    border-radius: 4px;
+    position: relative;
+    box-shadow: inset 0 1px 2px 1px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.1s;
+}
+.checkbox .check-marker:after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 7px;
+    width: 5px;
+    height: 10px;
+    opacity: 0;
+    border-color: white;
+    border-width: 0 3px 3px 0;
+    border-style: solid;
+    transform: rotate(45deg);
+    transition: opacity 0.1s, box-shadow 0.1s;
+}
+
+.checkbox input[type="checkbox"]:checked ~ .check-marker {
+    background-color: var(--accent-color-1);
+}
+.checkbox input[type="checkbox"]:checked ~ .check-marker:after {
+    opacity: 1;
+}
+
+.radiobox .check-marker {
+    border-radius: 100%;
+}
+.togglebox .check-marker:after,
+.radiobox .check-marker:after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 14px;
+    height: 14px;
+    border-radius: 100%;
+    opacity: 0;
+    background-color: var(--accent-color-1);
+    transition: opacity 0.1s;
+}
+
+.radiobox input[type="radio"]:checked ~ .check-marker {
+    box-shadow: inset 0 0 0 2px var(--accent-color-1);
+    background-color: white;
+}
+.radiobox input[type="radio"]:checked ~ .check-marker:after {
+    opacity: 1;
+}
+
+.togglebox .check-marker {
+    width: 40px;
+    border-radius: 11px;
+    background-color: #ddd;
+    box-shadow: inset 0 1px 2px 1px rgba(0, 0, 0, 0.1);
+}
+.togglebox .check-marker:after {
+    background-color: white;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    transition: background-color 0.2s, transform 0.2s;
+}
+.togglebox input[type="checkbox"]:checked ~ .check-marker {
+    background-color: var(--accent-color-1);
+}
+.togglebox input[type="checkbox"]:checked ~ .check-marker:after {
+    background-color: white;
+    transform: translateX(18px);
 }
