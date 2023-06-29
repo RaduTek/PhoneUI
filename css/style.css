@@ -1,7 +1,9 @@
 :root {
     --max-width: 500px;
+    --accent-highlight: rgba(30, 144, 255, 0.1);
     --accent-color-1: #1e90ff;
     --accent-color-2: #066fd8;
+    --accent-color-3: #125fac;
     /* filter: hue-rotate(180deg) invert(); */
 }
 
@@ -27,6 +29,16 @@ textarea {
 }
 .grayed {
     color: #666;
+}
+
+.text-accent {
+    color: var(--accent-color-1);
+}
+.text-red {
+    color: red;
+}
+.text-orange {
+    color: orange;
 }
 
 .header {
@@ -222,7 +234,7 @@ textarea {
 }
 .list-layout .item span {
     padding: 5px 4px 4px;
-    flex: 1;
+    flex-grow: 1;
 }
 .list-layout .item .right {
     text-align: right;
@@ -341,4 +353,55 @@ textarea {
 .togglebox input[type="checkbox"]:checked ~ .check-marker:after {
     background-color: white;
     transform: translateX(18px);
+}
+
+.textbox {
+    border-bottom: 2px solid #bbb;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 6px;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+    border-radius: 5px;
+    transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+}
+.textbox:focus-within {
+    border-color: var(--accent-color-1);
+    background-color: var(--accent-highlight);
+}
+.textbox iconify-icon {
+    font-size: 24px;
+    color: #777;
+}
+.textbox:focus-within iconify-icon {
+    color: var(--accent-color-3);
+}
+.textbox input[type="textbox"] {
+    border: none;
+    outline: none;
+    padding: 0 3px;
+    margin: 0;
+    margin-bottom: -0px;
+    flex: 1;
+    background-color: transparent;
+}
+.textbox.hint {
+    margin-top: 20px;
+}
+.textbox .hint {
+    position: absolute;
+    bottom: 5px;
+    left: 9px;
+    transition: transform 0.2s;
+    color: #888;
+    pointer-events: none;
+}
+.textbox:focus-within .hint,
+.textbox input[type="textbox"]:valid ~ .hint {
+    transform: translateX(-10px) translateY(-26px) scale(75%);
+}
+.textbox:focus-within .hint {
+    color: var(--accent-color-1);
 }

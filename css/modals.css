@@ -1,0 +1,122 @@
+.noscroll {
+    overflow: hidden;
+}
+
+.modal-host {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.3);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.5s;
+    overflow-y: auto;
+}
+
+.modal-host.open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-host.modal-popup {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup {
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 30px;
+}
+.popup .popup-title,
+.popup .popup-text {
+    text-align: center;
+    padding: 10px 8px 8px;
+}
+.popup .popup-title {
+    font-weight: bold;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.popup .popup-text {
+    padding: 20px 15px;
+}
+.popup .popup-buttons {
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+.popup .popup-buttons-vertical {
+    display: flex;
+    flex-direction: column;
+}
+.popup-buttons button,
+.popup-buttons-vertical button {
+    border-radius: 0;
+    flex: 1;
+    padding: 8px 14px;
+    color: black;
+    justify-content: center;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+.popup-buttons button:last-child() {
+    border: none;
+}
+.popup-buttons-vertical button {
+    border-right: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.modal-host.modal-bottom,
+.modal-host.modal-scroll {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: end;
+    justify-content: center;
+}
+
+.modal-host.modal-scroll {
+    align-items: baseline;
+}
+
+.modal {
+    width: 100%;
+    max-width: var(--max-width);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.3);
+}
+.modal.modal-spaced-1 {
+    margin-top: 20vh;
+}
+.modal.modal-spaced-2 {
+    margin-top: 40vh;
+}
+.modal.modal-spaced-3 {
+    margin-top: 60vh;
+}
+
+.modal .modal-header {
+    display: flex;
+    flex-direction: row;
+    padding: 4px;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.modal .modal-content {
+    padding: 12px;
+}
+
+.modal-content .list-layout .item-group {
+    background-color: #f7f7f7;
+}
