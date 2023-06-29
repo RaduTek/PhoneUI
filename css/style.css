@@ -40,8 +40,8 @@ textarea {
 }
 .header-inner {
     box-sizing: border-box;
-    height: 52px;
-    padding: 4px;
+    height: 54px;
+    padding: 4px 6px;
     display: flex;
     flex-direction: row;
     user-select: none;
@@ -64,7 +64,7 @@ textarea {
 }
 
 .header-textbox {
-    padding: 4px 2px 5px;
+    padding: 6px 2px;
 }
 
 .buttons {
@@ -77,12 +77,12 @@ textarea {
     z-index: 100;
 }
 .buttons-inner {
-    height: 56px;
+    height: 64px;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 4px;
-    padding: 4px;
+    gap: 6px;
+    padding: 6px;
 }
 .buttons-inner .clear-button {
     flex: 1;
@@ -109,7 +109,7 @@ textarea {
     top: 0;
     left: 0;
     right: 0;
-    padding: 60px 6px 100px;
+    padding: 62px 6px 82px;
 }
 .pages-inner .page.noanimate {
     transition: none;
@@ -132,8 +132,6 @@ textarea {
     opacity: 1;
     transform: translateX(0);
     visibility: visible;
-    /* max-height: initial;
-    overflow: visible; */
 }
 
 .clear-button {
@@ -165,7 +163,7 @@ textarea {
     margin: 0;
 }
 .clear-button.two-row iconify-icon {
-    font-size: 32px;
+    font-size: 36px;
 }
 .clear-button:hover {
     background-color: rgba(0, 0, 0, 0.05);
