@@ -53,8 +53,16 @@ class PageNavigator {
         }
     }
 
+    #scrollToTop() {
+        this.#pages.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    }
+
     selectPage(pageIndex) {
-        if (this.#activePage == pageIndex) return;
+        if (this.#activePage == pageIndex) {
+            this.#scrollToTop();
+            return;
+        }
+        window.scrollTo(0, 0);
         const page = this.#pages.children[pageIndex];
         this.#setSlidingDirection(pageIndex);
         this.#hideAllPages(true, false);
