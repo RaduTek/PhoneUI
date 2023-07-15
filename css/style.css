@@ -1,5 +1,5 @@
 :root {
-    --max-width: 500px;
+    --max-width: 600px;
     --accent-highlight: rgba(30, 144, 255, 0.1);
     --accent-color-1: #1e90ff;
     --accent-color-2: #066fd8;
@@ -24,6 +24,9 @@ textarea {
     font-size: inherit;
 }
 
+.full-width {
+    width: 100%;
+}
 .hidden {
     visibility: hidden;
 }
@@ -71,13 +74,14 @@ textarea {
 .header-center {
     flex: 1;
     justify-content: center;
+    align-items: center;
 }
 .header-right {
     justify-content: end;
 }
 
 .header-textbox {
-    padding: 11px 2px 0;
+    padding: 0;
 }
 
 .buttons {
@@ -109,6 +113,10 @@ textarea {
     max-width: var(--max-width);
 }
 
+.pages {
+    overflow-x: hidden;
+}
+
 .pages .pages-inner {
     position: relative;
     height: 100vh;
@@ -129,6 +137,7 @@ textarea {
 }
 .pages-inner .page.noheight {
     max-height: 0;
+    max-width: 0;
     overflow: hidden;
 }
 .pages-inner .page.hidden {
@@ -258,6 +267,12 @@ textarea {
 .list-layout label:active iconify-icon {
     transform: scale(0.8);
 }
+.list-layout .item.focusable:disabled,
+.list-layout button.item:disabled,
+.list-layout label.item:disabled {
+    color: #999;
+    background-color: transparent;
+}
 .list-layout .item input[type="checkbox"],
 .list-layout .item input[type="radio"] {
     width: 22px;
@@ -268,6 +283,32 @@ textarea {
     padding-left: 10px;
     padding-top: 4px;
     color: #777;
+    user-select: none;
+    font-weight: bold;
+}
+.list-layout .item.focusable:disabled iconify-icon,
+.list-layout button.item:disabled iconify-icon,
+.list-layout label.item:disabled iconify-icon,
+.list-layout .item.text-input iconify-icon {
+    transform: none;
+}
+.list-layout .item.text-input:focus-within {
+    background-color: var(--accent-highlight);
+}
+.list-layout .item.text-input span {
+    flex: initial;
+}
+.list-layout .item.text-input input {
+    border: 0;
+    outline: 0;
+    margin: 0;
+    padding: 0 4px;
+    flex: 1;
+    background-color: transparent;
+    border-bottom: 1px solid #aaa;
+}
+.list-layout .item.text-input:focus-within input {
+    border-color: var(--accent-color-1);
 }
 
 .checkbox input[type="checkbox"],
@@ -378,7 +419,7 @@ textarea {
 .textbox:focus-within iconify-icon {
     color: var(--accent-color-3);
 }
-.textbox input[type="textbox"] {
+.textbox input {
     border: none;
     outline: none;
     padding: 0 3px;
@@ -392,15 +433,16 @@ textarea {
 }
 .textbox .hint {
     position: absolute;
-    bottom: 5px;
-    left: 9px;
+    bottom: 2px;
+    left: 5px;
     transition: transform 0.2s;
     color: #888;
     pointer-events: none;
 }
 .textbox:focus-within .hint,
-.textbox input[type="textbox"]:valid ~ .hint {
-    transform: translateX(-10px) translateY(-26px) scale(75%);
+.textbox input:valid ~ .hint {
+    transform: translateX(-6px) translateY(-26px);
+    font-size: 10pt;
 }
 .textbox:focus-within .hint {
     color: var(--accent-color-1);
