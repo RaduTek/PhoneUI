@@ -43,10 +43,31 @@
                     <div class="pages-inner pagenav-pages">
                         <div class="page" data-page-name="home">
                             <div class="list-layout">
+                                <div class="item-group-label">Predefined Modals</div>
                                 <div class="item-group">
-                                    <button class="item item-button" onclick="modalpopup()">
-                                        <iconify-icon icon="tabler:chevron-left"></iconify-icon>
-                                        <span>Open text modal</span>
+                                    <button class="item" onclick="modalpopup(false)">
+                                        <iconify-icon icon="tabler:app-window"></iconify-icon>
+                                        <span>Message modal with 1 button</span>
+                                        <iconify-icon icon="tabler:chevron-right"></iconify-icon>
+                                    </button>
+                                    <button class="item" onclick="modalpopup(true)">
+                                        <iconify-icon icon="tabler:app-window"></iconify-icon>
+                                        <span>Message modal with 2 buttons</span>
+                                        <iconify-icon icon="tabler:chevron-right"></iconify-icon>
+                                    </button>
+                                    <button class="item" onclick="modaltext()">
+                                        <iconify-icon icon="tabler:app-window"></iconify-icon>
+                                        <span>Text prompt modal</span>
+                                        <iconify-icon icon="tabler:chevron-right"></iconify-icon>
+                                    </button>
+                                </div>
+
+                                <div class="item-group-label">Custom Modals</div>
+                                <div class="item-group">
+                                    <button class="item" onclick="modalcustom()">
+                                        <iconify-icon icon="tabler:app-window"></iconify-icon>
+                                        <span>Sample modal</span>
+                                        <iconify-icon icon="tabler:chevron-right"></iconify-icon>
                                     </button>
                                 </div>
 
@@ -97,32 +118,55 @@
 
                                 <div class="item-group-label">Buttons 1</div>
                                 <div class="item-group">
-                                    <button class="item item-button">
-                                        <span>Item text</span>
+                                    <button class="item">
+                                        <span>Plain button item</span>
                                     </button>
-                                    <button class="item item-button">
+                                    <button class="item">
                                         <iconify-icon icon="tabler:bell"></iconify-icon>
-                                        <span>Item with left icon</span>
+                                        <span>Button item with left icon</span>
                                     </button>
-                                    <button class="item item-button">
-                                        <span>Item with right icon</span>
+                                    <button class="item">
+                                        <span>Button item with right icon</span>
                                         <iconify-icon icon="tabler:chevron-right"></iconify-icon>
                                     </button>
-                                    <button class="item item-button">
+                                    <button class="item">
                                         <iconify-icon icon="tabler:folder"></iconify-icon>
-                                        <span>Item with left and right icon</span>
+                                        <span>Button item with left and right icon</span>
                                         <iconify-icon icon="tabler:chevron-right"></iconify-icon>
+                                    </button>
+                                    <button class="item" disabled>
+                                        <span>Disabled button item</span>
                                     </button>
                                 </div>
 
-                                <div class="item-group-label">Buttons 2</div>
+                                <div class="item-group-label">Text input</div>
                                 <div class="item-group">
-                                    <button class="item item-button">
-                                        <span>Item text</span>
-                                    </button>
-                                    <button class="item item-button">
-                                        <span>Item text</span>
-                                    </button>
+                                    <label class="item text-input">
+                                        <iconify-icon icon="tabler:folder"></iconify-icon>
+                                        <span>Item text hint</span>
+                                        <input type="text" />
+                                    </label>
+                                    <div class="item">
+                                        <div class="full-width">
+                                            <label class="textbox">
+                                                <input
+                                                    required
+                                                    type="textbox"
+                                                    placeholder="2nd type of text box with placeholder"
+                                                />
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="full-width">
+                                            <label class="textbox hint">
+                                                <input required type="textbox" />
+                                                <span class="hint"
+                                                    >2nd type of text box with hint</span
+                                                >
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -130,12 +174,12 @@
                             <div class="list-layout">
                                 <div class="item-group-label">Your Profile</div>
                                 <div class="item-group">
-                                    <button class="item item-button">
+                                    <button class="item">
                                         <iconify-icon icon="tabler:mail"></iconify-icon>
                                         <span>Change E-mail</span>
                                         <iconify-icon icon="tabler:chevron-right"></iconify-icon>
                                     </button>
-                                    <button class="item item-button">
+                                    <button class="item">
                                         <iconify-icon icon="tabler:key"></iconify-icon>
                                         <span>Change Password</span>
                                         <iconify-icon icon="tabler:chevron-right"></iconify-icon>
@@ -147,13 +191,13 @@
                             <div class="list-layout">
                                 <div class="item-group-label">App Settings</div>
                                 <div class="item-group">
-                                    <button class="item item-button" disabled>
+                                    <button class="item" disabled>
                                         <iconify-icon icon="tabler:mail"></iconify-icon>
                                         <span>Change E-mail</span>
                                         <span class="right">mail@mail.com</span>
                                         <iconify-icon icon="tabler:chevron-right"></iconify-icon>
                                     </button>
-                                    <button class="item item-button">
+                                    <button class="item">
                                         <iconify-icon icon="tabler:key"></iconify-icon>
                                         <span>Change Password</span>
                                         <span class="right">**********</span>
@@ -182,8 +226,8 @@
                 </div>
             </div>
         </div>
-        <div class="modal-host modal-scroll">
-            <div class="modal modal-spaced-3">
+        <div class="modal-host modal-bottom" id="modalhost1">
+            <div class="modal">
                 <div class="modal-header">
                     <div class="header-left"></div>
                     <div class="header-center">
@@ -235,16 +279,6 @@
                         <input required type="textbox" />
                         <span class="hint">Name</span>
                     </div> -->
-                </div>
-            </div>
-        </div>
-        <div class="modal-host modal-popup">
-            <div class="popup">
-                <div class="popup-title">Title text</div>
-                <div class="popup-text">Are you sure you want to perform this action?</div>
-                <div class="popup-buttons">
-                    <button class="clear-button"><span class="text-red">Confirm</span></button>
-                    <button class="clear-button"><span>Cancel</span></button>
                 </div>
             </div>
         </div>
